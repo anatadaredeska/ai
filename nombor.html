@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentukan Genap atau Ganjil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tentukan Genap atau Ganjil</h2>
+        <form method="POST" action="">
+            <input type="number" name="number" placeholder="Masukkan nombor..." required>
+            <button type="submit">Tentukan</button>
+        </form>
+
+        <div class="result">
+            <?php
+            // Semak jika borang dihantar
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $number = $_POST['number'];
+
+                // Tentukan genap atau ganjil
+                if ($number % 2 === 0) {
+                    echo "Nombor $number adalah **Genap**.";
+                } else {
+                    echo "Nombor $number adalah **Ganjil**.";
+                }
+            }
+            ?>
+        </div>
+    </div>
+</body>
+</html>
